@@ -1,0 +1,32 @@
+/send-message:
+  post:
+    tags:
+      - "send message"
+    summary: "send message"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            required:
+              - message
+              - priority
+            properties:
+              message:
+                type: string
+                default: "salom"
+              priority:
+                type: string
+                default: "medium"
+    responses:
+      200:
+        description: "success"
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+      400:
+        description: "bad request"
